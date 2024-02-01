@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import './App.css';
 
 // Components for different sections/pages
@@ -36,13 +36,12 @@ function App() {
           </ul>
         </nav>
 
-        <Switch>
           <Route path="/sign-in" component={SignIn} />
           <Route path="/home" component={Home} />
           <Route path="/locker" component={Locker} />
           <Route path="/cosmetics" component={Cosmetics} />
           <Route path="/community" component={Community} />
-        </Switch>
+       
       </div>
     </Router>
   );
