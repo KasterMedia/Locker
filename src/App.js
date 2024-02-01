@@ -1,5 +1,6 @@
+// src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 
 // Components for different sections/pages
@@ -8,6 +9,7 @@ import SignIn from './components/SignIn';
 import Locker from './components/Locker';
 import Cosmetics from './components/Cosmetics';
 import Community from './components/Community';
+import Logout from './components/Logout'; // Import the Logout component
 
 function App() {
   return (
@@ -36,12 +38,14 @@ function App() {
           </ul>
         </nav>
 
-          <Route path="/sign-in" component={SignIn} />
-          <Route path="/home" component={Home} />
-          <Route path="/locker" component={Locker} />
-          <Route path="/cosmetics" component={Cosmetics} />
-          <Route path="/community" component={Community} />
-       
+        <Routes>
+          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/locker" element={<Locker />} />
+          <Route path="/cosmetics" element={<Cosmetics />} />
+          <Route path="/community" element={<Community />} />
+          <Route path="/log-out" element={<Logout />} /> {/* New route for logout */}
+        </Routes>
       </div>
     </Router>
   );
