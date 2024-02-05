@@ -1,17 +1,16 @@
-// src/App.js
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 
-// Components for different sections/pages
 import Home from './components/Home';
 import SignIn from './components/SignIn';
-import Locker from './components/Locker';
+import Locker from './components/Locker.js';
 import Cosmetics from './components/Cosmetics';
 import Community from './components/Community';
-import Logout from './components/Logout'; // Import the Logout component
+import Logout from './components/Logout'; // 
 
 function App() {
+  const [selectedItems, setSelectedItems] = useState([]);
   return (
     <Router>
       <div className="App">
@@ -39,12 +38,19 @@ function App() {
         </nav>
 
         <Routes>
+
           <Route path="/sign-in" element={<SignIn />} />
+
           <Route path="/home" element={<Home />} />
-          <Route path="/locker" element={<Locker />} />
-          <Route path="/cosmetics" element={<Cosmetics />} />
+
+          <Route path="/locker" element={<Locker selectedItems={selectedItems} />} />
+
+          <Route path="/cosmetics" element={<Cosmetics setSelectedItems={setSelectedItems} />} />
+
           <Route path="/community" element={<Community />} />
+
           <Route path="/log-out" element={<Logout />} /> {/* New route for logout */}
+
         </Routes>
       </div>
     </Router>
