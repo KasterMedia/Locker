@@ -1,0 +1,31 @@
+.home-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .news-item {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  .news-item img {
+    max-width: 100%;
+    height: auto; /* Ensure the image aspect ratio is maintained */
+    border-radius: 8px; /* Add border radius for rounded corners */
+  }
+  
+  .news-item h3 {
+    margin-top: 0;
+  }
+  
+  .news-item p {
+    color: #666;
+  }
+  
+  .no-news {
+    font-style: italic;
+    color: #999;
+  }
+  

@@ -1,0 +1,19 @@
+/* Map.css */
+
+/* Style for the map container */
+.map-container {
+    text-align: center; /* Align map and title to the center */
+  }
+  
+  /* Style for the map title */
+  .map-title {
+    font-size: 24px; /* Adjust font size as needed */
+    margin-bottom: 20px; /* Add spacing between title and map */
+  }
+  
+  /* Style for the map image */
+  .map-image {
+    max-width: 100%; /* Ensure the map image doesn't exceed its container */
+    height: auto; /* Maintain aspect ratio */
+  }
+  

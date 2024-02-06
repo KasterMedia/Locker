@@ -1,3 +1,4 @@
+// Locker.js
 import React from 'react';
 
 function Locker({ selectedItems }) {
