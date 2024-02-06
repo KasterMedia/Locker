@@ -1,13 +1,15 @@
+// Cosmetics.js
 import React, { useState, useEffect } from 'react';
-import './Cosmetics.css'
-import { addCosmetic } from './Services.js';
+import './Cosmetics.css';
 import { useNavigate } from 'react-router-dom';
+import { addCosmetic } from './Services';
 
 function Cosmetics() {
   const [cosmetics, setCosmetics] = useState([]);
   const [types, setTypes] = useState([]);
   const [filteredCosmetics, setFilteredCosmetics] = useState(null);
   const [selectedItems, setSelectedItems] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,23 +29,16 @@ function Cosmetics() {
   }, []);
 
   const handleFilter = (type) => {
-
     const filteredItems = cosmetics.filter((cosmetic) => cosmetic.type.value === type);
     setFilteredCosmetics(filteredItems);
   };
 
-const navigate = useNavigate()
-
   const addToLocker = (item) => {
-    // Check if the item is not already in the locker
-    console.log("Adding to Locker:", item);
     if (!selectedItems.find((selectedItem) => selectedItem.id === item.id)) {
-      // Add the selected item to the locker
       setSelectedItems((prevItems) => [...prevItems, item]);
     }
-    addCosmetic(addToLocker).then(res => {
-     navigate (`/locker`)
-    })
+    // Add logic to persist selected items to storage or database if needed
+    navigate('/locker');
   };
 
   return (

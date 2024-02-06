@@ -1,0 +1,35 @@
+.shop-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .shop-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .shop-items-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .shop-item {
+    margin-bottom: 20px;
+  }
+  
+  .shop-item img {
+    width: 100px;
+    height: auto;
+  }
+  
+  .shop-item strong {
+    font-weight: bold;
+  }
+  
+  .shop-item-details {
+    margin-top: 10px;
+  }
+  
+  
