@@ -1,8 +1,6 @@
-// Cosmetics.js
 import React, { useState, useEffect } from 'react';
 import './Cosmetics.css';
 import { useNavigate } from 'react-router-dom';
-import { addCosmetic } from './Services';
 
 function Cosmetics() {
   const [cosmetics, setCosmetics] = useState([]);
@@ -37,9 +35,11 @@ function Cosmetics() {
     if (!selectedItems.find((selectedItem) => selectedItem.id === item.id)) {
       setSelectedItems((prevItems) => [...prevItems, item]);
     }
-    // Add logic to persist selected items to storage or database if needed
-    navigate('/locker');
+    // Pass the most recent selectedItems state
+    navigate('/locker', { state: { selectedItems: [...selectedItems, item] } });
   };
+  
+  
 
   return (
     <div>
