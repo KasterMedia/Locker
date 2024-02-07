@@ -1,27 +1,26 @@
-// Locker.js
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
-function Locker({ selectedItems }) {
+function Locker() {
+  const location = useLocation();
+  const selectedItems = location.state.selectedItems || [];
+
   return (
     <div>
-      <h2>Locker Component</h2>
-      {selectedItems.length > 0 ? (
-        <ul>
-          {selectedItems.map((item) => (
-            <li key={`locker_${item.id}`}>
-              <strong>{item.name}</strong>
-              <br />
-              Type: {item.type.value}
-              <br />
-              Rarity: {item.rarity.value}
-              <br />
-              <img src={item.images.icon} alt={item.name} style={{ maxWidth: '50px' }} />
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>Your locker is empty. Add items from the Cosmetics page!</p>
-      )}
+      <h2>Locker Items:</h2>
+      <ul>
+        {selectedItems.map((item, index) => (
+          <li key={`selected_${index}`}>
+            <strong>{item.name}</strong>
+            <br />
+            Type: {item.type.value}
+            <br />
+            Rarity: {item.rarity.value}
+            <br />
+            <img src={item.images.icon} alt={item.name} style={{ maxWidth: '50px' }} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
